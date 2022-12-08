@@ -7,9 +7,9 @@ store.subscribe(() => console.log(store.getState()));
 store.dispatch(addUser({ id: "76", name: "Sarah" }));
 store.dispatch(addUser({ id: "55", name: "Tom" }));
 store.dispatch(deleteUser("55"));
-store.dispatch(updateUser("55", { name: "Bob Martin" }));
+store.dispatch(updateUser("76", { name: "Bob Martin" }));
 
-store.dispatch(increment());
+/*store.dispatch(increment());
 store.dispatch(increment());
 store.dispatch(decrement());
-store.dispatch(reset());
+store.dispatch(reset());*/

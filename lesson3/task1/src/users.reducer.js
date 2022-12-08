@@ -13,7 +13,7 @@ export const usersReducer = (state = initialState, action) => {
       };
     case DELETE_USER: {
       const newList = state.usersList.filter(
-        (user) => user.id !== action.payload.userId
+        (user) => user.id !== action.payload
       );
       return {
         ...state,
