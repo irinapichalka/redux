@@ -9,7 +9,7 @@ export const languageReducer = (state = initialState, action) => {
     case SET_LANGUAGE:
       return {
         ...state,
-        language: action.payload.lang,
+        language: action.payload,
       };
     default:
       return state;
