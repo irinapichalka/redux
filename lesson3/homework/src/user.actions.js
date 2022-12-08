@@ -10,6 +10,6 @@ export const setUser = (userData) => {
 
 export const removeUser = () => {
   return {
-    type: DELETE_USER,
+    type: REMOVE_USER,
   };
 };
