@@ -68,12 +68,18 @@ export const usersListReducer = (state = initialState, action) => {
     case GO_NEXT:
       return {
         ...state,
-        currentPage: state.currentPage + 1,
+        users: {
+          usersList: state.users.usersList,
+          currentPage: state.users.currentPage + 1,
+        },
       };
     case GO_PREV: {
       return {
         ...state,
-        currentPage: state.currentPage - 1,
+        users: {
+          usersList: state.users.usersList,
+          currentPage: state.users.currentPage - 1,
+        },
       };
     }
     default:

@@ -5,13 +5,27 @@ import { connect } from "react-redux";
 import * as userActions from "./usersList.actions";
 
 class UsersList extends React.Component {
+  componentDidMount() {
+    this.props.goNext();
+  }
   render() {
     const { users, currentPage, goNext, goPrev } = this.props;
+    console.log(this.props);
+    const startIndex = currentPage * 3 - 3;
+    const endIndex = startIndex + 3;
+    const usersToShow = users.slice(startIndex, endIndex);
+    console.log(currentPage);
     return (
       <div>
-        <Pagination currentPage={currentPage} goNext={goNext} goPrev={goPrev} />
+        <Pagination
+          currentPage={currentPage}
+          goNext={goNext}
+          goPrev={goPrev}
+          totalItems={users.length}
+          itemsPerPage={3}
+        />
         <ul className="users">
-          {users.map((user) => (
+          {usersToShow.map((user) => (
             <User key={user.id} {...user} />
           ))}
         </ul>
