@@ -10,11 +10,9 @@ class UsersList extends React.Component {
   }
   render() {
     const { users, currentPage, goNext, goPrev } = this.props;
-    console.log(this.props);
     const startIndex = currentPage * 3 - 3;
     const endIndex = startIndex + 3;
     const usersToShow = users.slice(startIndex, endIndex);
-    console.log(currentPage);
     return (
       <div>
         <Pagination

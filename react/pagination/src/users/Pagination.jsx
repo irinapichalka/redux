@@ -7,7 +7,6 @@ class Pagination extends React.Component {
     const pages = Math.ceil(totalItems / itemsPerPage);
     const isPrevPageAvailable = currentPage === 1;
     const isNextPageAvailable = pages === currentPage;
-    console.log(pages);
     return (
       <div className="pagination">
         <button className="btn" onClick={goPrev} disabled={isPrevPageAvailable}>
