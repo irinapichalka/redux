@@ -2,7 +2,8 @@ import React from "react";
 import Pagination from "./Pagination";
 import User from "./User";
 import { connect } from "react-redux";
-import * as userActions from "./usersList.actions";
+import * as userActions from "./users.actions";
+import { usersListSelector, currentPageSelector } from "./users.selectors";
 
 class UsersList extends React.Component {
   render() {
@@ -29,10 +30,10 @@ class UsersList extends React.Component {
   }
 }
 
-const mapState = (state) => {
+const mapStatetoProps = (state) => {
   return {
-    users: state.users.usersList,
-    currentPage: state.users.currentPage,
+    users: usersListSelector(state),
+    currentPage: currentPageSelector(state),
   };
 };
 
@@ -41,7 +42,7 @@ const mapDispatch = {
   goNext: userActions.goNext,
 };
 
-const connector = connect(mapState, mapDispatch);
+const connector = connect(mapStatetoProps, mapDispatch);
 
 const ConnectedUsers = connector(UsersList);
 

@@ -1,4 +1,4 @@
-import { GO_NEXT, GO_PREV } from "./usersList.actions";
+import { GO_NEXT, GO_PREV } from "./users.actions";
 
 const initialState = {
   users: {
