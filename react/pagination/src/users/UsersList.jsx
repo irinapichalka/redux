@@ -5,12 +5,9 @@ import { connect } from "react-redux";
 import * as userActions from "./usersList.actions";
 
 class UsersList extends React.Component {
-  componentDidMount() {
-    this.props.goNext();
-  }
   render() {
     const { users, currentPage, goNext, goPrev } = this.props;
-    const startIndex = currentPage * 3 - 3;
+    const startIndex = currentPage * 3;
     const endIndex = startIndex + 3;
     const usersToShow = users.slice(startIndex, endIndex);
     return (

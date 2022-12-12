@@ -5,14 +5,14 @@ class Pagination extends React.Component {
     const { goPrev, goNext, currentPage, totalItems, itemsPerPage } =
       this.props;
     const pages = Math.ceil(totalItems / itemsPerPage);
-    const isPrevPageAvailable = currentPage === 1;
-    const isNextPageAvailable = pages === currentPage;
+    const isPrevPageAvailable = currentPage === 0;
+    const isNextPageAvailable = pages === currentPage + 1;
     return (
       <div className="pagination">
         <button className="btn" onClick={goPrev} disabled={isPrevPageAvailable}>
           {!isPrevPageAvailable && "←"}
         </button>
-        <span className="pagination__page">{currentPage}</span>
+        <span className="pagination__page">{currentPage + 1}</span>
         <button className="btn" onClick={goNext} disabled={isNextPageAvailable}>
           {!isNextPageAvailable && "→"}
         </button>
