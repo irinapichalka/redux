@@ -69,8 +69,6 @@ export const usersListReducer = (state = initialState, action) => {
       const usersToDisplay = state.users.usersList.filter(({ name }) =>
         name.toLowerCase().includes(action.payload.text)
       );
-      console.log(state.users.filterText);
-      console.log(usersToDisplay);
       return {
         ...state,
         users: {
