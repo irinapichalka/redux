@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Options = ({ title, options, moveOption }) => {
+  console.log(options);
   return (
     <div className="options">
       <div className="options__title">{title}</div>
       <ul className="options__list">
-        {options.map((option) => {
+        {options.map((option) => (
           <li key={option.id}>
             <button
               className="options__list-item"
@@ -14,8 +15,8 @@ const Options = ({ title, options, moveOption }) => {
             >
               {option.name}
             </button>
-          </li>;
-        })}
+          </li>
+        ))}
       </ul>
     </div>
   );

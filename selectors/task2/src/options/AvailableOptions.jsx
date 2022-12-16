@@ -1,4 +1,3 @@
-import React from "react";
 import { connect } from "react-redux";
 import { availableOptionsSelector } from "./options.selectors";
 import Options from "./Options";
