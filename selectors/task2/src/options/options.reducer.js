@@ -31,21 +31,26 @@ const options = [
 ];
 
 const initialState = {
-  optionsList: options,
-  selected: [],
+  options: {
+    optionsList: options,
+    selected: [],
+  },
 };
 
 const optionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_OPTION: {
       const { optionId } = action.payload;
-      const newSelectedIds = state.selected.includes(optionId)
-        ? state.selected.filter((id) => id !== optionId)
-        : state.selected.concat(optionId);
+      const newSelectedIds = state.options.selected.includes(optionId)
+        ? state.options.selected.filter((id) => id !== optionId)
+        : state.options.selected.concat(optionId);
 
       return {
         ...state,
-        selected: newSelectedIds,
+        options: {
+          optionsList: state.options.optionsList,
+          selected: newSelectedIds,
+        },
       };
     }
     default:
