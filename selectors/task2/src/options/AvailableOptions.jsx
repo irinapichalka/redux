@@ -3,7 +3,7 @@ import { availableOptionsSelector } from "./options.selectors";
 import Options from "./Options";
 import { toggleOption } from "./options.actions";
 
-const mapState = (state) => {
+const mapStateToProps = (state) => {
   return {
     options: availableOptionsSelector(state),
   };
@@ -12,4 +12,4 @@ const mapState = (state) => {
 const mapDispatch = {
   moveOption: toggleOption,
 };
-export default connect(mapState, mapDispatch)(Options);
+export default connect(mapStateToProps, mapDispatch)(Options);
