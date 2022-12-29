@@ -21,7 +21,7 @@ const usersReducer = (state = initialData, action) => {
       return {
         ...state,
         users: {
-          userData: action.payload,
+          userData: action.payload.userData,
           isFetching: false,
         },
       };

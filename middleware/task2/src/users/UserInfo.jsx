@@ -9,7 +9,7 @@ const UserInfo = ({ userData, isFetching }) => {
     return <Spinner />;
   }
   if (!userData) return null;
-  console.log(userData.location);
+  console.log(userData);
 
   return (
     <div className="user">
