@@ -1,8 +1,7 @@
 import React from "react";
 import TodoList from "./tasks/components/TodoList";
-import { Provider } from "react";
+import { Provider } from "react-redux";
 import store from "./store";
-import { getTaskList } from "./tasks/tasks.actions";
 
 const App = () => {
   return (
