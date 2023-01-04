@@ -1,46 +1,32 @@
 import React from "react";
 import Task from "./Task";
-import CreateTaskInput from "./CreateTaskInput";
-import {
-  createTask,
-  fetchTasksList,
-  updateTask,
-  deleteTask,
-} from "../tasksGateway";
+import PropTypes from "prop-types";
 
-class TasksList extends React.Component {
-  componentDidMount() {
-    this.props.getTaskList();
-  }
+const TasksList = ({ tasks, handleTaskDelete, handleTaskStatusChange }) => {
+  return (
+    <ul className="list">
+      {tasks.map((task) => (
+        <Task
+          key={task.id}
+          {...task}
+          onDelete={handleTaskDelete}
+          onChange={handleTaskStatusChange}
+        />
+      ))}
+    </ul>
+  );
+};
 
-  handleTaskStatusChange = (id) => {
-    const { done, text } = this.props.tasks.find((task) => task.id === id);
-    const updatedTask = {
-      text,
-      done: !done,
-    };
-    updateTask(id, updatedTask).then(() => this.fetchTasks());
-  };
-
-  handleTaskDelete = (id) => {
-    deleteTask(id).then(() => this.fetchTasks());
-  };
-
-  render() {
-    const sortedList = this.props.tasks.slice().sort((a, b) => a.done - b.done);
-    return (
-      <ul className="list">
-        {sortedList.map((task) => (
-          <Task
-            key={task.id}
-            {...task}
-            onDelete={this.handleTaskDelete}
-            onChange={this.handleTaskStatusChange}
-          />
-        ))}
-      </ul>
-    );
-  }
-}
+TasksList.propTypes = {
+  tasks: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      done: PropTypes.bool,
+      id: PropTypes.string,
+    })
+  ),
+  handleTaskDelete: PropTypes.func.isRequired,
+  handleTaskStatusChange: PropTypes.func.isRequired,
+};
 
 export default TasksList;

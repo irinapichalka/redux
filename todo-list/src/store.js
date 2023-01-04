@@ -6,6 +6,7 @@ const reducer = combineReducers({
   tasks: tasksReducer,
 });
 
-const store = createStore(reducer);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 export default store;
